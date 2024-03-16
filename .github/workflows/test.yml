@@ -1,11 +1,12 @@
+yaml
 name: Animal Farm NodeJS CI
 on:
   push:
     branches:
-      - main
+      - feat-newanimal
   pull_request:
     branches:
-      - main
+      - feat-newanimal
 jobs:
   build:
     runs-on: ubuntu-latest
