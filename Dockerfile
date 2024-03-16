@@ -1,15 +1,8 @@
-FROM node:14
+# Container image that runs your code
+FROM alpine:3.10
 
-# Create app directory
-WORKDIR /usr/src/app
+# Copies your code file from your action repository to the filesystem path `/` of the container
+COPY entrypoint.sh /entrypoint.sh
 
-# Install app dependencies
-COPY package.json yarn.lock ./
-RUN yarn install
-
-# Bundle app source
-COPY . .
-
-EXPOSE 8080
-
-CMD [ "node", "app.js" ]
+# Code file to execute when the docker container starts up (`entrypoint.sh`)
+ENTRYPOINT ["/entrypoint.sh"]
